@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - northwind@localhost" uuid="7fe4a853-b18f-427a-ba3e-805d900874d1">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="northwind"/>
+    <table name="alphabetical list of products" schema="" catalog="northwind" type="VIEW">
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SupplierID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="CategoryID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QuantityPerUnit" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+      <column name="UnitsInStock" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="UnitsOnOrder" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="ReorderLevel" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="Discontinued" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="categories" schema="" catalog="northwind" type="TABLE">
+      <column name="CategoryID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Description" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="Picture" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="CategoryID"/>
+      <exported-key name="FK_Products_Categories" table="products" schema="" catalog="northwind" columns="CategoryID"/>
+      <index name="CategoryName" unique="false" columns="CategoryName"/>
+    </table>
+    <table name="category sales for 1997" schema="" catalog="northwind" type="VIEW">
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CategorySales" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="current product list" schema="" catalog="northwind" type="VIEW">
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="customer and suppliers by city" schema="" catalog="northwind" type="VIEW">
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="ContactName" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Relationship" sqlType="VARCHAR" precision="9" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+    </table>
+    <table name="customercustomerdemo" schema="" catalog="northwind" type="TABLE">
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CustomerTypeID" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CustomerID,CustomerTypeID"/>
+      <foreign-key name="FK_CustomerCustomerDemo" columns="CustomerTypeID" ref-table="customerdemographics" ref-schema="" ref-catalog="northwind" ref-columns="CustomerTypeID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_CustomerCustomerDemo_Customers" columns="CustomerID" ref-table="customers" ref-schema="" ref-catalog="northwind" ref-columns="CustomerID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_CustomerCustomerDemo" unique="false" columns="CustomerTypeID"/>
+    </table>
+    <table name="customerdemographics" schema="" catalog="northwind" type="TABLE">
+      <column name="CustomerTypeID" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CustomerDesc" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="CustomerTypeID"/>
+      <exported-key name="FK_CustomerCustomerDemo" table="customercustomerdemo" schema="" catalog="northwind" columns="CustomerTypeID"/>
+    </table>
+    <table name="customers" schema="" catalog="northwind" type="TABLE">
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ContactName" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ContactTitle" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Address" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Region" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Phone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Fax" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CustomerID"/>
+      <exported-key name="FK_CustomerCustomerDemo_Customers" table="customercustomerdemo" schema="" catalog="northwind" columns="CustomerID"/>
+      <exported-key name="FK_Orders_Customers" table="orders" schema="" catalog="northwind" columns="CustomerID"/>
+      <index name="City" unique="false" columns="City"/>
+      <index name="CompanyName" unique="false" columns="CompanyName"/>
+      <index name="PostalCode" unique="false" columns="PostalCode"/>
+      <index name="Region" unique="false" columns="Region"/>
+    </table>
+    <table name="employees" schema="" catalog="northwind" type="TABLE">
+      <column name="EmployeeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LastName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Title" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TitleOfCourtesy" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BirthDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="HireDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="Address" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Region" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="HomePhone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Extension" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Photo" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="Notes" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="ReportsTo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PhotoPath" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Salary" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="EmployeeID"/>
+      <foreign-key name="FK_Employees_Employees" columns="ReportsTo" ref-table="employees" ref-schema="" ref-catalog="northwind" ref-columns="EmployeeID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_Employees_Employees" table="employees" schema="" catalog="northwind" columns="ReportsTo"/>
+      <exported-key name="FK_EmployeeTerritories_Employees" table="employeeterritories" schema="" catalog="northwind" columns="EmployeeID"/>
+      <exported-key name="FK_Orders_Employees" table="orders" schema="" catalog="northwind" columns="EmployeeID"/>
+      <index name="FK_Employees_Employees" unique="false" columns="ReportsTo"/>
+      <index name="LastName" unique="false" columns="LastName"/>
+      <index name="PostalCode" unique="false" columns="PostalCode"/>
+    </table>
+    <table name="employeeterritories" schema="" catalog="northwind" type="TABLE">
+      <column name="EmployeeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TerritoryID" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="EmployeeID,TerritoryID"/>
+      <foreign-key name="FK_EmployeeTerritories_Employees" columns="EmployeeID" ref-table="employees" ref-schema="" ref-catalog="northwind" ref-columns="EmployeeID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_EmployeeTerritories_Territories" columns="TerritoryID" ref-table="territories" ref-schema="" ref-catalog="northwind" ref-columns="TerritoryID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_EmployeeTerritories_Territories" unique="false" columns="TerritoryID"/>
+    </table>
+    <table name="invoices" schema="" catalog="northwind" type="VIEW">
+      <column name="ShipName" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipAddress" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCity" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipRegion" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipPostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCountry" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CustomerName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Address" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Region" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Salesperson" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="OrderDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="RequiredDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShipperName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="Quantity" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MQ=="/>
+      <column name="Discount" sqlType="DOUBLE" precision="8" scale="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="ExtendedPrice" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+      <column name="Freight" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+    </table>
+    <table name="order details" schema="" catalog="northwind" type="TABLE">
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="Quantity" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MQ=="/>
+      <column name="Discount" sqlType="DOUBLE" precision="8" scale="0" nullable="false" jdbcType="8" def="MA=="/>
+      <primary-key name="PRIMARY" columns="OrderID,ProductID"/>
+      <foreign-key name="FK_Order_Details_Orders" columns="OrderID" ref-table="orders" ref-schema="" ref-catalog="northwind" ref-columns="OrderID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Order_Details_Products" columns="ProductID" ref-table="products" ref-schema="" ref-catalog="northwind" ref-columns="ProductID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_Order_Details_Products" unique="false" columns="ProductID"/>
+    </table>
+    <table name="order details extended" schema="" catalog="northwind" type="VIEW">
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="false" jdbcType="3" def="MC4wMDAw"/>
+      <column name="Quantity" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MQ=="/>
+      <column name="Discount" sqlType="DOUBLE" precision="8" scale="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="ExtendedPrice" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="order subtotals" schema="" catalog="northwind" type="VIEW">
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Subtotal" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="orders" schema="" catalog="northwind" type="TABLE">
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EmployeeID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OrderDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="RequiredDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShipVia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Freight" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+      <column name="ShipName" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipAddress" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCity" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipRegion" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipPostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCountry" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="OrderID"/>
+      <foreign-key name="FK_Orders_Customers" columns="CustomerID" ref-table="customers" ref-schema="" ref-catalog="northwind" ref-columns="CustomerID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Orders_Employees" columns="EmployeeID" ref-table="employees" ref-schema="" ref-catalog="northwind" ref-columns="EmployeeID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Orders_Shippers" columns="ShipVia" ref-table="shippers" ref-schema="" ref-catalog="northwind" ref-columns="ShipperID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_Order_Details_Orders" table="order details" schema="" catalog="northwind" columns="OrderID"/>
+      <index name="FK_Orders_Customers" unique="false" columns="CustomerID"/>
+      <index name="FK_Orders_Employees" unique="false" columns="EmployeeID"/>
+      <index name="FK_Orders_Shippers" unique="false" columns="ShipVia"/>
+      <index name="OrderDate" unique="false" columns="OrderDate"/>
+      <index name="ShippedDate" unique="false" columns="ShippedDate"/>
+      <index name="ShipPostalCode" unique="false" columns="ShipPostalCode"/>
+    </table>
+    <table name="orders qry" schema="" catalog="northwind" type="VIEW">
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EmployeeID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OrderDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="RequiredDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ShipVia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Freight" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+      <column name="ShipName" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipAddress" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCity" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipRegion" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipPostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ShipCountry" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Address" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Region" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="product sales for 1997" schema="" catalog="northwind" type="VIEW">
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductSales" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="products" schema="" catalog="northwind" type="TABLE">
+      <column name="ProductID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SupplierID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="CategoryID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QuantityPerUnit" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+      <column name="UnitsInStock" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="UnitsOnOrder" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="ReorderLevel" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="Discontinued" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <primary-key name="PRIMARY" columns="ProductID"/>
+      <foreign-key name="FK_Products_Categories" columns="CategoryID" ref-table="categories" ref-schema="" ref-catalog="northwind" ref-columns="CategoryID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_Products_Suppliers" columns="SupplierID" ref-table="suppliers" ref-schema="" ref-catalog="northwind" ref-columns="SupplierID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_Order_Details_Products" table="order details" schema="" catalog="northwind" columns="ProductID"/>
+      <index name="FK_Products_Categories" unique="false" columns="CategoryID"/>
+      <index name="FK_Products_Suppliers" unique="false" columns="SupplierID"/>
+      <index name="ProductName" unique="false" columns="ProductName"/>
+    </table>
+    <table name="products above average price" schema="" catalog="northwind" type="VIEW">
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="UnitPrice" sqlType="DECIMAL" precision="10" scale="4" nullable="true" jdbcType="3" def="MC4wMDAw"/>
+    </table>
+    <table name="products by category" schema="" catalog="northwind" type="VIEW">
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="QuantityPerUnit" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UnitsInStock" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="Discontinued" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+    </table>
+    <table name="quarterly orders" schema="" catalog="northwind" type="VIEW">
+      <column name="CustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="region" schema="" catalog="northwind" type="TABLE">
+      <column name="RegionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RegionDescription" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="RegionID"/>
+      <exported-key name="FK_Territories_Region" table="territories" schema="" catalog="northwind" columns="RegionID"/>
+    </table>
+    <table name="sales by category" schema="" catalog="northwind" type="VIEW">
+      <column name="CategoryID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="CategoryName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ProductSales" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="sales totals by amount" schema="" catalog="northwind" type="VIEW">
+      <column name="SaleAmount" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="shippers" schema="" catalog="northwind" type="TABLE">
+      <column name="ShipperID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Phone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ShipperID"/>
+      <exported-key name="FK_Orders_Shippers" table="orders" schema="" catalog="northwind" columns="ShipVia"/>
+    </table>
+    <table name="summary of sales by quarter" schema="" catalog="northwind" type="VIEW">
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="Subtotal" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="summary of sales by year" schema="" catalog="northwind" type="VIEW">
+      <column name="ShippedDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="OrderID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="Subtotal" sqlType="DOUBLE" precision="25" scale="8" nullable="true" jdbcType="8"/>
+    </table>
+    <table name="suppliers" schema="" catalog="northwind" type="TABLE">
+      <column name="SupplierID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CompanyName" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ContactName" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ContactTitle" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Address" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Region" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Phone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Fax" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <column name="HomePage" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="SupplierID"/>
+      <exported-key name="FK_Products_Suppliers" table="products" schema="" catalog="northwind" columns="SupplierID"/>
+      <index name="CompanyName" unique="false" columns="CompanyName"/>
+      <index name="PostalCode" unique="false" columns="PostalCode"/>
+    </table>
+    <table name="territories" schema="" catalog="northwind" type="TABLE">
+      <column name="TerritoryID" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TerritoryDescription" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RegionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="TerritoryID"/>
+      <foreign-key name="FK_Territories_Region" columns="RegionID" ref-table="region" ref-schema="" ref-catalog="northwind" ref-columns="RegionID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_EmployeeTerritories_Territories" table="employeeterritories" schema="" catalog="northwind" columns="TerritoryID"/>
+      <index name="FK_Territories_Region" unique="false" columns="RegionID"/>
+    </table>
+    <procedure name="CustOrderHist" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtCustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="CustOrdersOrders" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtCustomerID" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="DateOnly" schema="" catalog="northwind" type="2">
+      <prototype>
+        <parameter name="InDateTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="1"/>
+        <parameter name="" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="Employee Sales by Country" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtBeginning_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="1"/>
+        <parameter name="AtEnding_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="LookByFName" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtFirstLetter" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="MyRound" schema="" catalog="northwind" type="2">
+      <prototype>
+        <parameter name="Operand" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" type="1" index="1"/>
+        <parameter name="Places" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="Sales by Year" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtBeginning_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="1"/>
+        <parameter name="AtEnding_Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="SalesByCategory" schema="" catalog="northwind" type="1"/>
+    <procedure name="sp_Employees_Insert" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtLastName" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="AtFirstName" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="AtTitle" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="AtTitleOfCourtesy" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="AtBirthDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="5"/>
+        <parameter name="AtHireDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="6"/>
+        <parameter name="AtAddress" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="AtCity" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="AtRegion" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="AtPostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="AtCountry" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="AtHomePhone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="AtExtension" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="AtPhoto" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4" type="1" index="14"/>
+        <parameter name="AtNotes" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1" type="1" index="15"/>
+        <parameter name="AtReportsTo" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="16"/>
+        <parameter name="AtPhotoPath" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="17"/>
+        <parameter name="AtReturnID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="18"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_Employees_SelectAll" schema="" catalog="northwind" type="1"/>
+    <procedure name="sp_Employees_SelectRow" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtEmployeeID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_Employees_Update" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="AtEmployeeID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="AtLastName" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="AtFirstName" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="AtTitle" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="AtTitleOfCourtesy" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="AtBirthDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="6"/>
+        <parameter name="AtHireDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="7"/>
+        <parameter name="AtAddress" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="AtCity" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="AtRegion" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="AtPostalCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="AtCountry" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="AtHomePhone" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="AtExtension" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="14"/>
+        <parameter name="AtPhoto" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4" type="1" index="15"/>
+        <parameter name="AtNotes" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1" type="1" index="16"/>
+        <parameter name="AtReportsTo" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="17"/>
+        <parameter name="AtPhotoPath" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="18"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_employees_cursor" schema="" catalog="northwind" type="1">
+      <prototype>
+        <parameter name="city_in" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sp_employees_rank" schema="" catalog="northwind" type="1"/>
+    <procedure name="sp_employees_rownum" schema="" catalog="northwind" type="1"/>
+  </data-source>
+</component>
